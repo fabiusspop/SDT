@@ -1,0 +1,24 @@
++---------------------+          +---------------------+
+|   PersonalDataI     |          | PersonalInformation |
+|---------------------|          |---------------------|
+| + getName():String  |          | + getPersonalInfo():|
+| + getBDay():LocalDate|         |   String            |
+| + getEmail():String |          +---------------------+
+| + getTelephone():String|
++---------------------+          +---------------------+
+            ^                                ^
+            |                                |
+            |                                |
++---------------------+          +---------------------+
+|    PersonalData     |          |  PersonalDataAdapter|
+|---------------------|          |---------------------|
+| - name:String       |          | - personalData:     |
+| - bDay:LocalDate    |          |   PersonalDataI     |
+| - email:String      |          |---------------------|
+| - telephone:String  |          | + getPersonalInfo():|
+|---------------------|          |   String            |
+| + getName():String  |          +---------------------+
+| + getBDay():LocalDate|
+| + getEmail():String |
+| + getTelephone():String|
++---------------------+

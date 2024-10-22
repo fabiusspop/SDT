@@ -1,0 +1,32 @@
++---------------------+          +---------------------+
+|   NotificationService|          |   SensorEvent       |
+|---------------------|          |---------------------|
+| + setNext(next:     |          | + getType():EventType|
+|   NotificationService)|        | + getTimestamp():   |
+| + handleEvent(event:|          |   LocalDateTime     |
+|   SensorEvent)      |          | + getLocation():    |
++---------------------+          |   String            |
+            ^                    +---------------------+
+            |
+            |
++---------------------+          +---------------------+
+|   EmailNotification |          |   TelephoneNotification|
+|---------------------|          |---------------------|
+| - next:NotificationService|    | - next:NotificationService|
+| + setNext(next:     |          | + setNext(next:     |
+|   NotificationService)|        |   NotificationService)|
+| + handleEvent(event:|          | + handleEvent(event:|
+|   SensorEvent)      |          |   SensorEvent)      |
++---------------------+          +---------------------+
+            ^                                ^
+            |                                |
+            |                                |
++---------------------+          +---------------------+
+|   Logger            |          |   Sensor            |
+|---------------------|          |---------------------|
+| - next:NotificationService|    | - chain:NotificationService|
+| + setNext(next:     |          | + run():void        |
+|   NotificationService)|        +---------------------+
+| + handleEvent(event:|
+|   SensorEvent)      |
++---------------------+
